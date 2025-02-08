@@ -1,0 +1,19 @@
+{
+  "name": "entry-control-microservice",
+  "version": "1.0.0",
+  "description": "Access control microservice with JS and REST API.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "node-fetch": "^3.3.1",
+    "requests": "^0.3.0"
+  }
+}
