@@ -6,7 +6,6 @@ const db = require('../config/db');
 const registerEntry = async (req, res) => {
     const { reservationId } = req.body;
 
-    // Verificar si la reserva ya tiene una entrada activa
     try {
         const [existingEntry] = await db.execute(
             'SELECT * FROM Entries WHERE reservation_id = ? AND status = ?',
