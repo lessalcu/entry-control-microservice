@@ -12,7 +12,7 @@ const registerEntry = async (req, res) => {
             [reservationId, 'Entered']
         );
         if (existingEntry.length > 0) {
-            return res.status(400).json({ message: 'Entry already registered for this reservation' });
+            return res.status(400).json({ message: 'Entry already registered for this reservation.' });
         }
     } catch (error) {
         return res.status(500).json({ message: 'Database error while checking existing entry', error });
