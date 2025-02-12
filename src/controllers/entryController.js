@@ -20,7 +20,7 @@ const registerEntry = async (req, res) => {
 
     getReservationById(reservationId, async (err, reservation) => {
         console.log("🔍 Reservation response:", reservation);
-        if (err || !reservation || reservation.status !== 'Confirmed') {
+        if (err || !reservation || reservation.status !== 'Pending') {
             return res.status(404).json({ message: 'Valid reservation not found' });
         }
         console.log("🔍 Extracted user_id:", reservation.userId);
