@@ -2,26 +2,16 @@ const requests = require('requests');
 require('dotenv').config();
 
 const RESERVATION_SERVICE_URL = process.env.RESERVATION_SERVICE_URL;
+console.log(`✅ RESERVATION_SERVICE_URL: ${RESERVATION_SERVICE_URL}`);
 
 const getReservationById = (reservationId, callback) => {
-    const query = `
-    query GetReservation($id: Int!) {
-        getReservationById(id: $id) {
-            id
-            userId
-            vehicleId
-            parkingLotId
-            startDate
-            endDate
-            status
-            totalAmount
-        }
-    }`;
+    // ✅ Modified the query to remove variable usage
+    const query = `{ getReservationById(id: ${reservationId}) { id userId vehicleId parkingLotId startDate endDate status totalAmount } }`;
 
-    const variables = { id: parseInt(reservationId) };
-    const requestBody = JSON.stringify({ query, variables });
+    const requestBody = JSON.stringify({ query });
 
-    console.log(`🔍 Fetching reservation from: ${RESERVATION_SERVICE_URL}`);
+    console.log(`📤 Sending request to ${RESERVATION_SERVICE_URL}`);
+    console.log(`📝 Request Body:`, requestBody);
 
     let responseData = '';
 
